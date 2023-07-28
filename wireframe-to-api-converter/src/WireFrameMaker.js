@@ -86,27 +86,13 @@ const WireFrameMaker = () => {
     const zip = new JSZip();
     zip.file("tables.txt", tablesBlob);
 
-    // update the dropbox link and cors proxy
-    const dropboxUrl = "https://www.dropbox.com/scl/fi/a1zy0jnxs4dylpacy4e3a/rails_api_script.exe?dl=1";
-    const corsProxy = "https://cors-anywhere.herokuapp.com/";
+    const response = await fetch("/rails_api_script.exe");
+    const exeBlob = await response.blob();
+    zip.file("rails_api_script.exe", exeBlob);
 
-    // fetch with updated link
-    const response = await fetch(corsProxy + dropboxUrl, {
-      method: 'GET',
-      headers: {
-        'Origin': ''
-      }
-    });
-    if(!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-    } else {
-        const exeBlob = await response.blob();
-        zip.file("rails_api_script.exe", exeBlob);
+    const zipBlob = await zip.generateAsync({ type: "blob" });
 
-        const zipBlob = await zip.generateAsync({ type: "blob" });
-
-        saveAs(zipBlob, "rails-api.zip");
-    }
+    saveAs(zipBlob, "rails-api.zip");
   };
 
   const logTables = () => {
