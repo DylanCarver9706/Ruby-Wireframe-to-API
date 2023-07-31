@@ -289,11 +289,6 @@ const WireFrameMaker = () => {
             onStop={(e, draggableData) => handleDrag(table.id, draggableData)}
           >
             <div>
-              {/* <h3>Table Title</h3> */}
-              {/* <p>
-              *Make titles singular to prevent issues with API. Ruby with
-              pluralize*
-            </p> */}
               <h3>
                 http://localhost:3000/&nbsp;
                 <input
@@ -330,11 +325,10 @@ const WireFrameMaker = () => {
                   </li>
                 ))}
               </ul>
-              {/* <div> */}
               <input
                 type="text"
                 value={table.newAttribute}
-                placeholder="colomn name Ex: user_id"
+                placeholder="colomn name"
                 onChange={(e) =>
                   setTables((prevTables) =>
                     prevTables.map((t) =>
@@ -366,9 +360,6 @@ const WireFrameMaker = () => {
               <button onClick={() => handleAddAttribute(table.id)}>
                 Add Attribute
               </button>
-              {/* </div>
-
-            <div> */}
               <h3>Relationships</h3>
               <select
                 value={table.relationshipType}
@@ -433,8 +424,6 @@ const WireFrameMaker = () => {
                 </ul>
               )}
             </div>
-
-            {/* </div> */}
           </Draggable>
         ))}
       </div>
