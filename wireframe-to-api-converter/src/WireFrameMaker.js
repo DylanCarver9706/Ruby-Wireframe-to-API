@@ -426,7 +426,6 @@ const WireFrameMaker = () => {
                 Add Attribute
               </button>
             </div>
-            
           </div>
         </Draggable>
       ))}
