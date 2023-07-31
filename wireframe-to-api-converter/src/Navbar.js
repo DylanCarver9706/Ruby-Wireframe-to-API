@@ -14,7 +14,7 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
 
-const pages = ["Wireframe Maker", "Pricing", "Buy Me a Coffee"];
+const pages = ["Wireframe Maker", "How To Use", "Pricing", "Buy Me a Coffee"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
