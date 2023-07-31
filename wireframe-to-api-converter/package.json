@@ -1,7 +1,7 @@
 {
   "name": "wireframe-to-api-converter",
   "version": "0.1.0",
-  "homepage": "https://DylanCarver9706.github.io/Ruby-Wireframe-to-API",
+  "homepage": "https://DylanCarver9706.github.io/",
   "private": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "latest",
