@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.e6c13ad2.css",
-    "main.js": "/static/js/main.fb8e31d2.js",
-    "index.html": "/index.html",
-    "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
-    "main.fb8e31d2.js.map": "/static/js/main.fb8e31d2.js.map"
+    "main.css": "/Ruby-Wireframe-to-API/static/css/main.e6c13ad2.css",
+    "main.js": "/Ruby-Wireframe-to-API/static/js/main.a93d867b.js",
+    "index.html": "/Ruby-Wireframe-to-API/index.html",
+    "main.e6c13ad2.css.map": "/Ruby-Wireframe-to-API/static/css/main.e6c13ad2.css.map",
+    "main.a93d867b.js.map": "/Ruby-Wireframe-to-API/static/js/main.a93d867b.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.fb8e31d2.js"
+    "static/js/main.a93d867b.js"
   ]
 }
