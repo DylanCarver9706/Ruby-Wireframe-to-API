@@ -1,7 +1,6 @@
 {
   "name": "wireframe-to-api-converter",
   "version": "0.1.0",
-  "homepage": "https://DylanCarver9706.github.io/Ruby-Wireframe-to-API",
   "private": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "latest",
@@ -30,8 +29,6 @@
     "zustand": "^4.3.8"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "set PORT=3001 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
