@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Ruby-Wireframe-to-API/static/css/main.e6c13ad2.css",
-    "main.js": "/Ruby-Wireframe-to-API/static/js/main.a93d867b.js",
+    "main.js": "/Ruby-Wireframe-to-API/static/js/main.4338a69c.js",
     "index.html": "/Ruby-Wireframe-to-API/index.html",
     "main.e6c13ad2.css.map": "/Ruby-Wireframe-to-API/static/css/main.e6c13ad2.css.map",
-    "main.a93d867b.js.map": "/Ruby-Wireframe-to-API/static/js/main.a93d867b.js.map"
+    "main.4338a69c.js.map": "/Ruby-Wireframe-to-API/static/js/main.4338a69c.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.a93d867b.js"
+    "static/js/main.4338a69c.js"
   ]
 }
