@@ -1,38 +1,113 @@
-.App {
-  text-align: center;
+/* Style for the main container */
+.table {
+  border-radius: 8px;
+  padding: 8px; /* Adjusted padding to make it more compact */
+  margin: 16px;
+  width: fit-content;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Style for the input field within .table */
+.table input[type="text"],
+.table select {
+  padding: 8px; /* Set the same height for inputs and selects */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: auto;
+  margin-bottom: 8px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Style for the h3 elements within .table */
+.table h3 {
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 8px; /* Adjusted margin to make it more compact */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Style for the ul element within .table */
+.table ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Style for the li elements within .table */
+.table li {
+  margin-bottom: 4px;
+}
+
+/* Style for the button elements within .table */
+.table button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 8px; /* Adjusted margin to make it more compact */
+}
+
+/* Change button background on hover */
+.table button:hover {
+  background-color: #0056b3;
+}
+
+/* Style for the div elements within .table */
+.table div {
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 12px; /* Adjusted padding to make it more compact */
+  margin-top: 8px; /* Adjusted margin to make it more compact */
+}
+
+/* Style for the .table p element */
+.table p {
+  font-style: italic;
+  color: #777;
+  margin-bottom: 8px; /* Adjusted margin to make it more compact */
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 7.5%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 12px;
+  background-color: #007bff;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.input-container {
+  display: flex;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input-field {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px;
+  margin-right: 12px;
 }
+
+.add-table-button,
+.generate-api-button {
+  padding: 8px 16px;
+  background-color: #0056b3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-table-button:hover,
+.generate-api-button:hover {
+  background-color: #003d80;
+}
+
+

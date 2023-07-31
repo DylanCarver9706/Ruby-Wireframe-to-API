@@ -95,25 +95,25 @@ const WireFrameMaker = () => {
     saveAs(zipBlob, "rails-api.zip");
   };
 
-  const logTables = () => {
-    const data = {
-      "database-name": databaseName,
-      tables: tables.map((table) => {
-        return {
-          id: table.id,
-          title: table.title,
-          attributes: table.attributes.map((attribute) => {
-            return {
-              name: attribute.name,
-              type: attribute.type,
-            };
-          }),
-          relationships: table.relationships,
-        };
-      }),
-    };
-    console.log(JSON.stringify(data, null, 2));
-  };
+  // const logTables = () => {
+  //   const data = {
+  //     "database-name": databaseName,
+  //     tables: tables.map((table) => {
+  //       return {
+  //         id: table.id,
+  //         title: table.title,
+  //         attributes: table.attributes.map((attribute) => {
+  //           return {
+  //             name: attribute.name,
+  //             type: attribute.type,
+  //           };
+  //         }),
+  //         relationships: table.relationships,
+  //       };
+  //     }),
+  //   };
+  //   console.log(JSON.stringify(data, null, 2));
+  // };
 
   const handleAttributeChange = (tableId, attributeIndex, newValue) => {
     setTables((prevTables) =>
@@ -262,138 +262,79 @@ const WireFrameMaker = () => {
 
   return (
     <div>
-      <div>
-        <input
-          type="text"
-          value={databaseName}
-          placeholder="Database Name"
-          onChange={(event) => setDatabaseName(event.target.value)}
-        />
-        <button onClick={addTable}>Add Table</button>
-        <button onClick={generateAPI}>Generate API</button>
-        <button onClick={logTables}>Log Tables</button>
+      <div className="footer">
+        <div className="input-container">
+          <input
+            type="text"
+            value={databaseName}
+            placeholder="Database Name"
+            onChange={(event) => setDatabaseName(event.target.value)}
+            className="input-field"
+          />
+        </div>
+        <button onClick={addTable} className="add-table-button">
+          Add Table
+        </button>
+        &nbsp;
+        <button onClick={generateAPI} className="generate-api-button">
+          Generate API
+        </button>
+        {/* <button onClick={logTables}>Log Tables</button> */}
       </div>
-      {tables.map((table) => (
-        <Draggable
-          key={table.id}
-          position={table.position}
-          onStop={(e, draggableData) => handleDrag(table.id, draggableData)}
-        >
-          <div
-            style={{
-              border: "1px solid #ccc",
-              padding: "8px",
-              margin: "8px",
-              backgroundColor: "#fff",
-              width: "fit-content",
-            }}
+      <div className="table">
+        {tables.map((table) => (
+          <Draggable
+            key={table.id}
+            position={table.position}
+            onStop={(e, draggableData) => handleDrag(table.id, draggableData)}
           >
-            <h3>Table Title</h3>
-            <p>
+            <div>
+              {/* <h3>Table Title</h3> */}
+              {/* <p>
               *Make titles singular to prevent issues with API. Ruby with
               pluralize*
-            </p>
-            <input
-              type="text"
-              value={table.title}
-              placeholder="Table Title"
-              onChange={(event) => handleTitleChange(table.id, event)}
-            />
-            <select
-              value={table.relationshipType}
-              onChange={(event) =>
-                handleRelationshipTypeChange(table.id, event)
-              }
-            >
-              <option value="">Select Relationship Type</option>
-              <option value="belongs_to">Belongs To</option>
-              <option value="has_many">Has Many</option>
-              <option value="has_many_through">Has Many, through:</option>
-            </select>
-            {table.relationshipType !== "" && (
-              <>
-                <select
-                  value={table.relatedTable}
-                  onChange={(event) =>
-                    handleRelatedTableChange(table.id, event)
-                  }
-                >
-                  <option value="">Select Related Table</option>
-                  {tables
-                    .filter((t) => t.id !== table.id)
-                    .map((t) => (
-                      <option key={t.id} value={t.title}>
-                        {t.title}
-                      </option>
-                    ))}
-                </select>
-                {table.relationshipType === "has_many_through" && (
-                  <>
-                    through
+            </p> */}
+              <h3>
+                http://localhost:3000/&nbsp;
+                <input
+                  type="text"
+                  value={table.title}
+                  placeholder="Table Title"
+                  onChange={(event) => handleTitleChange(table.id, event)}
+                />
+              </h3>
+
+              <h3>Attributes</h3>
+              <ul>
+                {table.attributes.map((attribute, index) => (
+                  <li key={index}>
+                    <input
+                      type="text"
+                      value={attribute.name}
+                      onChange={(e) =>
+                        handleAttributeChange(table.id, index, e.target.value)
+                      }
+                    />
                     <select
-                      value={table.throughTable}
-                      onChange={(event) =>
-                        handleThroughTableChange(table.id, event)
+                      value={attribute.type}
+                      onChange={(e) =>
+                        handleTypeChange(table.id, index, e.target.value)
                       }
                     >
-                      <option value="">Select Through Table</option>
-                      {tables
-                        .filter(
-                          (t) => t.id !== table.id && t.title !== relatedTable
-                        )
-                        .map((t) => (
-                          <option key={t.id} value={t.title}>
-                            {t.title}
-                          </option>
-                        ))}
+                      <option value="data type">Data Type</option>
+                      <option value="integer">Integer</option>
+                      <option value="boolean">Boolean</option>
+                      <option value="float">Float</option>
+                      <option value="string">String</option>
                     </select>
-                  </>
-                )}
-                <button onClick={() => handleAddRelationship(table.id)}>
-                  Add Relationship
-                </button>
-              </>
-            )}
-            {table.relationships.length > 0 && (
-              <div>
-                <h3>Relationships</h3>
-                <ul>
-                  {table.relationships.map((relationship, index) => (
-                    <li key={index}>{relationship}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            <h3>Attributes/Columns</h3>
-            <ul>
-              {table.attributes.map((attribute, index) => (
-                <li key={index}>
-                  <input
-                    type="text"
-                    value={attribute.name}
-                    onChange={(e) =>
-                      handleAttributeChange(table.id, index, e.target.value)
-                    }
-                  />
-                  <select
-                    value={attribute.type}
-                    onChange={(e) =>
-                      handleTypeChange(table.id, index, e.target.value)
-                    }
-                  >
-                    <option value="data type">Data Type</option>
-                    <option value="integer">Integer</option>
-                    <option value="boolean">Boolean</option>
-                    <option value="float">Float</option>
-                    <option value="string">String</option>
-                  </select>
-                </li>
-              ))}
-            </ul>
-            <div>
+                  </li>
+                ))}
+              </ul>
+              {/* <div> */}
               <input
                 type="text"
                 value={table.newAttribute}
+                placeholder="colomn name Ex: user_id"
                 onChange={(e) =>
                   setTables((prevTables) =>
                     prevTables.map((t) =>
@@ -425,10 +366,78 @@ const WireFrameMaker = () => {
               <button onClick={() => handleAddAttribute(table.id)}>
                 Add Attribute
               </button>
+              {/* </div>
+
+            <div> */}
+              <h3>Relationships</h3>
+              <select
+                value={table.relationshipType}
+                onChange={(event) =>
+                  handleRelationshipTypeChange(table.id, event)
+                }
+              >
+                <option value="">Select Relationship Type</option>
+                <option value="belongs_to">Belongs To</option>
+                <option value="has_many">Has Many</option>
+                <option value="has_many_through">Has Many, through:</option>
+              </select>
+              {table.relationshipType !== "" && (
+                <>
+                  <select
+                    value={table.relatedTable}
+                    onChange={(event) =>
+                      handleRelatedTableChange(table.id, event)
+                    }
+                  >
+                    <option value="">Select Related Table</option>
+                    {tables
+                      .filter((t) => t.id !== table.id)
+                      .map((t) => (
+                        <option key={t.id} value={t.title}>
+                          {t.title}
+                        </option>
+                      ))}
+                  </select>
+                  {table.relationshipType === "has_many_through" && (
+                    <>
+                      through
+                      <select
+                        value={table.throughTable}
+                        onChange={(event) =>
+                          handleThroughTableChange(table.id, event)
+                        }
+                      >
+                        <option value="">Select Through Table</option>
+                        {tables
+                          .filter(
+                            (t) => t.id !== table.id && t.title !== relatedTable
+                          )
+                          .map((t) => (
+                            <option key={t.id} value={t.title}>
+                              {t.title}
+                            </option>
+                          ))}
+                      </select>
+                    </>
+                  )}
+                  <button onClick={() => handleAddRelationship(table.id)}>
+                    Add Relationship
+                  </button>
+                </>
+              )}
+              {table.relationships.length > 0 && (
+                <ul>
+                  {table.relationships.map((relationship, index) => (
+                    <li key={index}>{relationship}</li>
+                  ))}
+                </ul>
+              )}
             </div>
-          </div>
-        </Draggable>
-      ))}
+
+            {/* </div> */}
+          </Draggable>
+        ))}
+      </div>
     </div>
   );
 };

@@ -14,7 +14,7 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
 
-const pages = ["Wireframe Maker", "How To Use", "Pricing", "Buy Me a Coffee"];
+const pages = ["Wireframe Maker", "How To Use", "Buy Me a Coffee"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
@@ -39,9 +39,17 @@ function Navbar() {
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
+      
         <Toolbar disableGutters>
+        <Link to="/" style={{ textDecoration: "none" }}>
+            <img
+              src="/database-icon.png" // Relative path starting from the public folder
+              alt="Logo"
+              style={{ height: "30px", marginRight: "8px" }} // Adjust the height as needed
+            />
+            </Link>
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
-          <Typography
+          {/* <Typography
             variant="h6"
             noWrap
             component={Link}
@@ -57,7 +65,7 @@ function Navbar() {
             }}
           >
             WIREFRAME TO API CONVERTER
-          </Typography>
+          </Typography> */}
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -131,7 +139,7 @@ function Navbar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
               </IconButton>
             </Tooltip>
             <Menu

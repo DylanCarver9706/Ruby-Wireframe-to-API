@@ -4,6 +4,7 @@ import WireFrameMaker from "./WireFrameMaker";
 import Home from "./Home";
 import Navbar from "./Navbar";
 import HowToUse from "./HowToUse";
+import './App.css';
 
 const App = () => {
   return (
