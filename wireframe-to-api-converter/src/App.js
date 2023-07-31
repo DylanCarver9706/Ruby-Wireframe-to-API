@@ -14,7 +14,7 @@ const App = () => {
       </>
       
         <Routes>
-          <Route path="" exact element={ <Home/>} />
+          <Route path="/" exact element={ <Home/>} />
           <Route path="/wireframe-maker" element={<WireFrameMaker/>} />
           <Route path="/how-to-use" element={<HowToUse/>} />
         </Routes>
