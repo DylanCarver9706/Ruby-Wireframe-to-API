@@ -1,6 +1,5 @@
-import * as React from "react";
+import React from "react";
 import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
@@ -11,17 +10,22 @@ const pages = ["Wireframe Maker", "How To Use", "Buy Me a Coffee"];
 function Navbar() {
   return (
     <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
+      <Toolbar disableGutters style={{ display: "flex", justifyContent: "center" }}>
+        <div style={{ display: "flex", alignItems: "center" }}>
           <Link to="/" style={{ textDecoration: "none" }}>
             <img
-              src="/database-icon.png" // Relative path starting from the public folder
+              src="/database-icon.png"
               alt="Logo"
-              style={{ height: "30px", marginRight: "8px" }} // Adjust the height as needed
+              style={{ height: "50px", marginRight: "-20px" }}
             />
           </Link>
-
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          &nbsp;
+          <Container
+            sx={{
+              display: { xs: "none", md: "flex" },
+              justifyContent: "center",
+            }}
+          >
             {pages.map((page) => (
               <Button
                 key={page}
@@ -32,9 +36,9 @@ function Navbar() {
                 {page}
               </Button>
             ))}
-          </Box>
-        </Toolbar>
-      </Container>
+          </Container>
+        </div>
+      </Toolbar>
     </AppBar>
   );
 }

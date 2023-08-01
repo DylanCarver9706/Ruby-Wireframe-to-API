@@ -4,6 +4,7 @@
   padding: 8px; /* Adjusted padding to make it more compact */
   margin: 16px;
   width: fit-content;
+  margin-top: 50px;
 }
 
 /* Style for the input field within .table */
@@ -58,6 +59,10 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 12px; /* Adjusted padding to make it more compact */
   margin-top: 8px; /* Adjusted margin to make it more compact */
+
+  /* New styles for the border and rounded edges */
+  border: 2px solid #000000;
+  border-radius: 8px;
 }
 
 /* Style for the .table p element */
@@ -67,18 +72,14 @@
   margin-bottom: 8px; /* Adjusted margin to make it more compact */
 }
 
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  height: 7.5%;
-  width: 100%;
+.header {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 12px;
   background-color: #007bff;
   color: white;
+  border: 2px solid #000000;
 }
 
 .input-container {
@@ -94,13 +95,22 @@
   margin-right: 12px;
 }
 
-.add-table-button,
-.generate-api-button {
+.add-table-button{
   padding: 8px 16px;
   background-color: #0056b3;
   color: #fff;
-  border: none;
+  border: 2px solid #000000;
   border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.generate-api-button {
+  padding: 8px 16px;
+  background-color: #0056b3;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  color: #fff;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }

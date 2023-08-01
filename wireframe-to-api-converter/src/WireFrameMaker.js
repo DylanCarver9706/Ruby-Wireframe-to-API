@@ -50,13 +50,14 @@ const WireFrameMaker = () => {
       title: "",
       attributes: [],
       relationships: [],
-      position: { x: 0, y: 0 },
+      position: { x: 0, y: -tables.length * 250 },
       relationshipType: "",
       relatedTable: "",
       throughTable: "",
     };
     setTables((prevTables) => [...prevTables, newTable]);
   };
+  
   const updateTableData = () => {
     const updatedTables = tables.map((table) => {
       return {
@@ -262,7 +263,7 @@ const WireFrameMaker = () => {
 
   return (
     <div>
-      <div className="footer">
+      <div className="header">
         <div className="input-container">
           <input
             type="text"
@@ -271,10 +272,10 @@ const WireFrameMaker = () => {
             onChange={(event) => setDatabaseName(event.target.value)}
             className="input-field"
           />
-        </div>
         <button onClick={addTable} className="add-table-button">
           Add Table
         </button>
+        </div>
         &nbsp;
         <button onClick={generateAPI} className="generate-api-button">
           Generate API
@@ -310,6 +311,7 @@ const WireFrameMaker = () => {
                         handleAttributeChange(table.id, index, e.target.value)
                       }
                     />
+                    &nbsp;
                     <select
                       value={attribute.type}
                       onChange={(e) =>
@@ -328,7 +330,7 @@ const WireFrameMaker = () => {
               <input
                 type="text"
                 value={table.newAttribute}
-                placeholder="colomn name"
+                placeholder="Column Name"
                 onChange={(e) =>
                   setTables((prevTables) =>
                     prevTables.map((t) =>
@@ -339,6 +341,7 @@ const WireFrameMaker = () => {
                   )
                 }
               />
+              &nbsp;
               <select
                 value={table.selectedType}
                 onChange={(e) =>
@@ -357,10 +360,18 @@ const WireFrameMaker = () => {
                 <option value="Float">Float</option>
                 <option value="String">String</option>
               </select>
+              &nbsp;
               <button onClick={() => handleAddAttribute(table.id)}>
                 Add Attribute
               </button>
               <h3>Relationships</h3>
+              {table.relationships.length > 0 && (
+                <ul>
+                  {table.relationships.map((relationship, index) => (
+                    <li key={index}>{relationship}</li>
+                  ))}
+                </ul>
+              )}
               <select
                 value={table.relationshipType}
                 onChange={(event) =>
@@ -368,12 +379,15 @@ const WireFrameMaker = () => {
                 }
               >
                 <option value="">Select Relationship Type</option>
-                <option value="belongs_to">Belongs To</option>
-                <option value="has_many">Has Many</option>
-                <option value="has_many_through">Has Many, through:</option>
+                <option value="belongs_to">Belongs_To</option>
+                <option value="has_many">Has_Many</option>
+                <option value="has_many_through">Has_Many, Through:</option>
               </select>
+              &nbsp;
+              <br/>
               {table.relationshipType !== "" && (
                 <>
+
                   <select
                     value={table.relatedTable}
                     onChange={(event) =>
@@ -391,7 +405,7 @@ const WireFrameMaker = () => {
                   </select>
                   {table.relationshipType === "has_many_through" && (
                     <>
-                      through
+                      &nbsp;through&nbsp;
                       <select
                         value={table.throughTable}
                         onChange={(event) =>
@@ -411,18 +425,13 @@ const WireFrameMaker = () => {
                       </select>
                     </>
                   )}
+                  <br/>
                   <button onClick={() => handleAddRelationship(table.id)}>
                     Add Relationship
                   </button>
                 </>
               )}
-              {table.relationships.length > 0 && (
-                <ul>
-                  {table.relationships.map((relationship, index) => (
-                    <li key={index}>{relationship}</li>
-                  ))}
-                </ul>
-              )}
+              
             </div>
           </Draggable>
         ))}
