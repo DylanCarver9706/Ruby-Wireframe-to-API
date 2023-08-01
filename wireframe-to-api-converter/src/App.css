@@ -120,4 +120,58 @@
   background-color: #003d80;
 }
 
+.how-to-use-container {
+  max-width: 60%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.how-to-use-container h2 {
+  margin-top: 0;
+}
+
+.how-to-intro {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  max-width: 60%;
+  margin: 0 auto;
+  border: 2px solid #000000;
+  padding: 10px;
+}
+
+/* .how-to-use-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+
+@media (max-width: 768px) {
+  .how-to-use-container {
+    grid-template-columns: 1fr;
+  }
+} */
+
+/* .how-to-use-container ol {
+  padding-left: 20px;
+} */
+
+.instruction {
+  margin-bottom: 10px;
+  border: 2px solid #000000;
+  padding: 10px; /* Add padding to the border */
+}
+
+.faq-item {
+  margin-bottom: 20px;
+  border: 2px solid #000000;
+  padding: 10px; /* Add padding to the border */
+}
+
+.faq-item strong {
+  display: block;
+  margin-bottom: 10px;
+}
 
