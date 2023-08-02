@@ -5,7 +5,7 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 
-const pages = ["Wireframe Maker", "How To Use", "Buy Me a Coffee"];
+const authorWebsiteURL = "https://dylancarver9706.github.io/Dylan-Carver-Personal-Website/";
 
 function Navbar() {
   return (
@@ -26,16 +26,58 @@ function Navbar() {
               justifyContent: "center",
             }}
           >
-            {pages.map((page) => (
-              <Button
-                key={page}
-                component={Link}
-                to={`/${page.replace(/\s+/g, "-").toLowerCase()}`}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))}
+            <Button
+              component={Link}
+              to="/wireframe-maker"
+              sx={{
+                my: 2,
+                color: "black",
+                backgroundColor: "transparent",
+                display: "block",
+                "&:hover": {
+                  backgroundColor: "transparent",
+                  textDecoration: "none",
+                },
+              }}
+            >
+              Wireframe Maker
+            </Button>
+
+            <Button
+              component={Link}
+              to="/how-to-use"
+              sx={{
+                my: 2,
+                color: "black",
+                backgroundColor: "transparent",
+                display: "block",
+                "&:hover": {
+                  backgroundColor: "transparent",
+                  textDecoration: "none",
+                },
+              }}
+            >
+              How To Use
+            </Button>
+
+            <Button
+              component="a" // Use anchor tag for external link
+              href={authorWebsiteURL}
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                my: 2,
+                color: "black",
+                backgroundColor: "transparent",
+                display: "block",
+                "&:hover": {
+                  backgroundColor: "transparent",
+                  textDecoration: "none",
+                },
+              }}
+            >
+              About the Author
+            </Button>
           </Container>
         </div>
       </Toolbar>

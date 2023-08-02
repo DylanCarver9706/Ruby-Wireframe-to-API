@@ -22,56 +22,121 @@ const HowToUse = () => {
             database used is MySQL.
           </p>
         </div>
-          <h2>Instructions</h2>
+        <h2>Instructions</h2>
         <div class="instruction">
-  <strong>Start your Wireframe:</strong> Go to "Wireframe Maker" to start
-  creating the wireframe for your backend database.
-</div>
-<div class="instruction">
-  <strong>Give a clear and concise name to your table:</strong> On your first
-  table, you will see 'http://localhost:3000/Table Title'. In the input field,
-  enter the name of this table. Be sure not to pluralize it as the Ruby methods
-  will take care of that and can cause issues for join tables later.
-</div>
-<div class="instruction">
-  <strong>Add attributes to your first table:</strong> The attributes are the
-  columns for your database table. Do not pluralize these names. Also, be sure
-  to add your IDs into your join table to follow Ruby conventions. There is no
-  need to specify "id" as an attribute as this is taken care of with Ruby
-  methods.
-</div>
-<div class="instruction">
-  <strong>Establish Relationships:</strong> To create relationships/associations
-  between tables, select the appropriate relationship type from the dropdown
-  and choose the related table. For "has_many_through" relationships, specify
-  the through table as well. Click on the "Add Relationship" button to add the
-  relationship to the table. Follow this guide to find the appropriate
-  relationship for your table:&nbsp;
-  <a
-    href="https://guides.rubyonrails.org/association_basics.html"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Ruby on Rails Association Basics Guide
-  </a>
-</div>
-<div class="instruction">
-  <strong>Create a New Table:</strong> Once you are ready to expand your
-  database, click on the "Add Table" button in the navigation bar to create a
-  new table. Provide a title for the table and define its attributes and data
-  types using the fields provided.
-</div>
-<div class="instruction">
-  <strong>Drag and Reposition Tables:</strong> You can easily drag and
-  reposition the tables on the screen using your mouse with React DnD. This
-  feature allows you to organize your wireframes efficiently.
-</div>
-<div class="instruction">
-  <strong>Generate API:</strong> Once you've defined the attributes and
-  relationships of your database, click on the "Generate API" button in the
-  navigation bar. The application will create an API based on the wireframe and
-  download a custom script to get it running.
-</div>
+          <strong>Start your Wireframe:</strong> Go to "Wireframe Maker" to
+          start creating the wireframe for your backend database.
+        </div>
+        <div class="instruction">
+          <strong>Name Your Database:</strong> At the top there will be a header
+          that says 'Database Name'. This will be the name of your database and
+          ultimately your ruby project when you generate the tables into an APi.{" "}
+          <strong>
+            For database naming conventions, please do no have any spaces,
+            capital letters, or special characters
+          </strong>{" "}
+          when naming the database. This will prevent the API from being
+          generated later. Some examples or database names are
+          'restaurant-database' or 'my-new-ruby-api'
+        </div>
+        <div class="instruction">
+          <strong>Name Your Table:</strong> On your first table, you will see
+          'http://localhost:3000/Table Title'. In the input field, enter the
+          name of the table.{" "}
+          <strong>Be sure not to pluralize the table names </strong>
+          as the Ruby methods will take care of that and it can cause issues for
+          join tables later.
+        </div>
+        <div class="instruction">
+          <strong>Add attributes to your first table:</strong> The attributes
+          are the columns for your database table. Do not pluralize these names.
+          Also, be sure to add your IDs into your join table to follow Ruby
+          conventions. There is no need to specify "id" as an attribute as this
+          is taken care of with Ruby methods.
+        </div>
+        <div class="instruction">
+          <strong>Establish Relationships:</strong> To create
+          relationships/associations between tables, select the appropriate
+          relationship type from the dropdown and choose the related table. For
+          "has_many_through" relationships, specify the through table as well.
+          Click on the "Add Relationship" button to add the relationship to the
+          table. Follow this guide to find the appropriate relationship for your
+          table:&nbsp;
+          <a
+            href="https://guides.rubyonrails.org/association_basics.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ruby on Rails Association Basics Guide
+          </a>
+        </div>
+        <div class="instruction">
+          <strong>Create a New Table:</strong> Once you are ready to expand your
+          database, click on the "Add Table" button in the navigation bar to
+          create a new table. Provide a title for the table and define its
+          attributes and data types using the fields provided.
+        </div>
+        <div class="instruction">
+          <strong>Drag and Reposition Tables:</strong> You can easily drag and
+          reposition the tables on the screen using your mouse with React DnD.
+          This feature allows you to organize your wireframes efficiently.
+        </div>
+        <div class="instruction">
+          <strong>Generate API:</strong> Once you've defined the attributes and
+          relationships of your database, click on the "Generate API" button in
+          the navigation bar. The application will create an API based on the
+          wireframe and download a custom script to get it running.
+        </div>
+        <div class="instruction">
+          <strong>Test and Build:</strong> Now you can run the Python script
+          provided in the download folder to create a custom Ruby on Rails
+          project with enpoints ready to go!
+        </div>
+      </div>
+      <h2>How to Run the API</h2>
+      <div className="how-to-run-api">
+        <div class="instruction">
+          <strong>Unpack:</strong> Once the file is downloaded, unzip and move
+          the folder to where you want the project to live in your directory
+        </div>
+        <div class="instruction">
+          <strong>Run:</strong> Run the .exe file in the download folder to run
+          the custom Python script built just for your database
+        </div>
+        <div class="instruction">
+          <strong>Protection:</strong> If you encounter any warnings from
+          Windows Defender or an anti-virus software, ignore it and continue. I
+          promise this is not a virus 😉
+        </div>
+        <div class="instruction">
+          <strong>Ruby Version:</strong> The program will check if the latest
+          version of ruby is installed by checking the rubyinstaller.org. If the
+          latest version is installed, the script will continue building your
+          API, if it isn't, the downloader will be downloaded and installed for
+          you. Follow the prompts on the installer and the script until it is
+          downloaded
+        </div>
+        <div class="instruction">
+          <strong>Success:</strong> The API will then be generated and a port
+          will be open to allow you to access those endpoints you created
+          earlier, immediately!
+        </div>
+        <div class="instruction">
+          <strong>Test Endponts:</strong> Test your endpoints. I recommend&nbsp;
+          <a
+            href="https://www.postman.com/downloads/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Postman
+          </a>
+          &nbsp;for this
+        </div>
+        <div class="instruction">
+          <strong>Done:</strong> Now your API is live and running and ready for
+          you to create that next billion dollar idea. Just don't forget who
+          saved you tons of time building your app when you are on your yacht!
+        </div>
       </div>
       <div className="faq-section">
         <div className="commonly-asked-questions">
@@ -85,8 +150,9 @@ const HowToUse = () => {
               A: No worries! If you accidentally close the script window while
               the port is running, you can easily restart the API. Head to the
               location where you unzipped the file, navigate to the project
-              directory, and find the /app sub-directory. In your terminal of
-              choice, run 'rails s' to start the API on the same port again.
+              directory, and navigate to the /app sub-directory. In your
+              terminal of choice, run 'rails s' to start the API on the same
+              port again.
             </p>
           </div>
           <div className="faq-item">

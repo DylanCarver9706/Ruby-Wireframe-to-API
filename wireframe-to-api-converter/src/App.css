@@ -2,9 +2,15 @@
 .table {
   border-radius: 8px;
   padding: 8px; /* Adjusted padding to make it more compact */
-  margin: 16px;
+  height: 365px;
+  position: absolute;
+  background-color: #f5f5f5;
   width: fit-content;
+  height: fit-content;
   margin-top: 50px;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  margin: 20px;
 }
 
 /* Style for the input field within .table */
@@ -46,6 +52,7 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-top: 8px; /* Adjusted margin to make it more compact */
+  
 }
 
 /* Change button background on hover */
@@ -113,6 +120,7 @@
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 
 .add-table-button:hover,
@@ -124,10 +132,12 @@
   max-width: 60%;
   margin: 0 auto;
   padding: 20px;
+  color: #f5f5f5
 }
 
 .how-to-use-container h2 {
   margin-top: 0;
+  color: black;
 }
 
 .how-to-intro {
@@ -164,6 +174,10 @@
   padding: 10px; /* Add padding to the border */
 }
 
+.how-to-instructions h2 {
+  color: black;
+}
+
 .faq-item {
   margin-bottom: 20px;
   border: 2px solid #000000;
@@ -175,3 +189,98 @@
   margin-bottom: 10px;
 }
 
+/* .zoom-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.zoom-buttons button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.zoom-buttons button:hover {
+  background-color: #0056b3;
+} */
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  backdrop-filter: blur(5px); /* Add the blur effect to the background */
+  z-index: 9999; /* Adjust the z-index value as needed */
+}
+
+.modal-content {
+  position: relative;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 20px;
+  width:fit-content;
+  /* max-width: 400px; */
+  /* height: fit-content; */
+  margin: 100px auto;
+  text-align: center;
+}
+
+.close-button {
+  background-color: #c52222;;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+
+  /* Position the button at the bottom right */
+  position: absolute;
+  bottom: 20px; /* Add some padding to the bottom */
+  right: 20px; /* Add some padding to the right */
+}
+
+.close-button:hover {
+  background-color: #ff0000;;
+}
+
+.donate-buttons img {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.donate-buttons button {
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #007bff; /* Blue color, you can change it to your desired color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.donate-buttons button a {
+  color: white; /* Set the text color to white for anchor tags inside buttons */
+  text-decoration: none;
+}
+
+.donate-buttons button:hover {
+  background-color: #0056b3; /* Darker shade of the blue color on hover */
+  color: white;
+}

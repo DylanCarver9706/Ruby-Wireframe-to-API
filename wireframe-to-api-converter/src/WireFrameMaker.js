@@ -2,12 +2,15 @@ import React, { useState, useEffect, useRef } from "react";
 import Draggable from "react-draggable";
 import JSZip from "jszip";
 import { saveAs } from "file-saver";
+import Modal from "./Modal";
 
 const WireFrameMaker = () => {
   const [databaseName, setDatabaseName] = useState("");
   const [relationshipType, setRelationshipType] = useState("");
   const [relatedTable, setRelatedTable] = useState("");
   const [throughTable, setThroughTable] = useState("");
+  const [newAttributeInput, setNewAttributeInput] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [tables, setTables] = useState([
     {
       id: 1,
@@ -20,6 +23,8 @@ const WireFrameMaker = () => {
       throughTable: "",
     },
   ]);
+
+
 
   // This useEffect will run when the component mounts and store the initial tables state
   useEffect(() => {
@@ -50,7 +55,7 @@ const WireFrameMaker = () => {
       title: "",
       attributes: [],
       relationships: [],
-      position: { x: 0, y: -tables.length * 250 },
+      position: { x: 0, y: tables.length * 15 },
       relationshipType: "",
       relatedTable: "",
       throughTable: "",
@@ -94,6 +99,7 @@ const WireFrameMaker = () => {
     const zipBlob = await zip.generateAsync({ type: "blob" });
 
     saveAs(zipBlob, "rails-api.zip");
+    openModal();
   };
 
   // const logTables = () => {
@@ -203,8 +209,10 @@ const WireFrameMaker = () => {
                 ...table.attributes,
                 {
                   name:
-                    table.newAttribute.trim() !== "" ? table.newAttribute : "",
-                  type: table.selectedType.toLowerCase(),
+                    table.newAttribute && table.newAttribute.trim() !== "" // Check if newAttribute exists and is not an empty string
+                      ? table.newAttribute.trim()
+                      : "",
+                  type: table.selectedType && table.selectedType.toLowerCase(), // Check if selectedType exists before converting to lowercase
                 },
               ],
               newAttribute: "",
@@ -261,8 +269,17 @@ const WireFrameMaker = () => {
     });
   };
 
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div>
+      <Modal isOpen={isModalOpen} onClose={closeModal} />
       <div className="header">
         <div className="input-container">
           <input
@@ -280,16 +297,17 @@ const WireFrameMaker = () => {
         <button onClick={generateAPI} className="generate-api-button">
           Generate API
         </button>
+        
         {/* <button onClick={logTables}>Log Tables</button> */}
       </div>
-      <div className="table">
+      <div >
         {tables.map((table) => (
           <Draggable
             key={table.id}
             position={table.position}
             onStop={(e, draggableData) => handleDrag(table.id, draggableData)}
           >
-            <div>
+            <div className="table">
               <h3>
                 http://localhost:3000/&nbsp;
                 <input
@@ -368,7 +386,7 @@ const WireFrameMaker = () => {
               {table.relationships.length > 0 && (
                 <ul>
                   {table.relationships.map((relationship, index) => (
-                    <li key={index}>{relationship}</li>
+                    <li key={index}><h4>{relationship}</h4></li>
                   ))}
                 </ul>
               )}
