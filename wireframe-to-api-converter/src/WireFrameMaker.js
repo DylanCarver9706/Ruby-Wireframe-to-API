@@ -17,25 +17,24 @@ const WireFrameMaker = () => {
       title: "",
       attributes: [],
       relationships: [],
-      position: { x: 0, y: 0 },
+      position: { x: 10, y: 75 },
       relationshipType: "",
       relatedTable: "",
       throughTable: "",
     },
   ]);
 
-
-
-  // This useEffect will run when the component mounts and store the initial tables state
   useEffect(() => {
-    initialTablesRef.current = tables;
-  }, [tables]);
-
-  useEffect(() => {
-    // Update the tables array when the table is modified
-    if (tables && tables !== initialTablesRef.current) {
-      updateTableData();
+    // Load the tables state from local storage when the component mounts
+    const savedTables = JSON.parse(localStorage.getItem("tables"));
+    if (savedTables) {
+      setTables(savedTables);
     }
+  }, []);
+
+  useEffect(() => {
+    // Save the tables state to local storage whenever it changes
+    localStorage.setItem("tables", JSON.stringify(tables));
   }, [tables]);
 
   const initialTablesRef = useRef([]);
@@ -55,14 +54,14 @@ const WireFrameMaker = () => {
       title: "",
       attributes: [],
       relationships: [],
-      position: { x: 0, y: tables.length * 15 },
+      position: { x: 10, y: tables.length * 15 + 75 },
       relationshipType: "",
       relatedTable: "",
       throughTable: "",
     };
     setTables((prevTables) => [...prevTables, newTable]);
   };
-  
+
   const updateTableData = () => {
     const updatedTables = tables.map((table) => {
       return {
@@ -102,25 +101,25 @@ const WireFrameMaker = () => {
     openModal();
   };
 
-  // const logTables = () => {
-  //   const data = {
-  //     "database-name": databaseName,
-  //     tables: tables.map((table) => {
-  //       return {
-  //         id: table.id,
-  //         title: table.title,
-  //         attributes: table.attributes.map((attribute) => {
-  //           return {
-  //             name: attribute.name,
-  //             type: attribute.type,
-  //           };
-  //         }),
-  //         relationships: table.relationships,
-  //       };
-  //     }),
-  //   };
-  //   console.log(JSON.stringify(data, null, 2));
-  // };
+  const logTables = () => {
+    const data = {
+      "database-name": databaseName,
+      tables: tables.map((table) => {
+        return {
+          id: table.id,
+          title: table.title,
+          attributes: table.attributes.map((attribute) => {
+            return {
+              name: attribute.name,
+              type: attribute.type,
+            };
+          }),
+          relationships: table.relationships,
+        };
+      }),
+    };
+    console.log(JSON.stringify(data, null, 2));
+  };
 
   const handleAttributeChange = (tableId, attributeIndex, newValue) => {
     setTables((prevTables) =>
@@ -252,7 +251,36 @@ const WireFrameMaker = () => {
     );
   };
 
-  const renderRelationships = (relationships) => {
+  const renderTableAttributes = (attributes, tableId) => {
+    return attributes.map((attribute, index) => (
+      <li key={index}>
+        <input
+          type="text"
+          value={attribute.name}
+          onChange={(e) =>
+            handleAttributeChange(tableId, index, e.target.value)
+          }
+        />
+        &nbsp;
+        <select
+          value={attribute.type}
+          onChange={(e) => handleTypeChange(tableId, index, e.target.value)}
+        >
+          <option value="data type">Data Type</option>
+          <option value="integer">Integer</option>
+          <option value="boolean">Boolean</option>
+          <option value="float">Float</option>
+          <option value="string">String</option>
+        </select>
+        &nbsp;
+        <button onClick={() => handleDeleteAttribute(tableId, index)}>
+          Delete Attribute
+        </button>
+      </li>
+    ));
+  };
+
+  const renderTableRelationships = (relationships, tableId) => {
     return relationships.map((relationship, index) => {
       const parts = relationship.split(":").map((part) => part.trim());
       const type = parts[0];
@@ -264,6 +292,9 @@ const WireFrameMaker = () => {
           {throughTable
             ? `${type} :${relatedTable}, through: :${throughTable}`
             : `${type} :${relatedTable}`}
+          <button onClick={() => handleDeleteRelationship(tableId, index)}>
+            Delete Relationship
+          </button>
         </li>
       );
     });
@@ -275,6 +306,42 @@ const WireFrameMaker = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+  const handleDeleteAttribute = (tableId, attributeIndex) => {
+    setTables((prevTables) =>
+      prevTables.map((table) =>
+        table.id === tableId
+          ? {
+              ...table,
+              attributes: table.attributes.filter(
+                (_, index) => index !== attributeIndex
+              ),
+            }
+          : table
+      )
+    );
+  };
+
+  const handleDeleteRelationship = (tableId, relationshipIndex) => {
+    setTables((prevTables) =>
+      prevTables.map((table) =>
+        table.id === tableId
+          ? {
+              ...table,
+              relationships: table.relationships.filter(
+                (_, index) => index !== relationshipIndex
+              ),
+            }
+          : table
+      )
+    );
+  };
+
+  const handleDeleteTable = (tableId) => {
+    setTables((prevTables) =>
+      prevTables.filter((table) => table.id !== tableId)
+    );
   };
 
   return (
@@ -289,18 +356,17 @@ const WireFrameMaker = () => {
             onChange={(event) => setDatabaseName(event.target.value)}
             className="input-field"
           />
-        <button onClick={addTable} className="add-table-button">
-          Add Table
-        </button>
+          <button onClick={addTable} className="add-table-button">
+            Add Table
+          </button>
         </div>
         &nbsp;
         <button onClick={generateAPI} className="generate-api-button">
           Generate API
         </button>
-        
-        {/* <button onClick={logTables}>Log Tables</button> */}
+        <button onClick={logTables}>Log Tables</button>
       </div>
-      <div >
+      <div>
         {tables.map((table) => (
           <Draggable
             key={table.id}
@@ -317,34 +383,32 @@ const WireFrameMaker = () => {
                   onChange={(event) => handleTitleChange(table.id, event)}
                 />
               </h3>
-
               <h3>Attributes</h3>
-              <ul>
-                {table.attributes.map((attribute, index) => (
-                  <li key={index}>
-                    <input
-                      type="text"
-                      value={attribute.name}
-                      onChange={(e) =>
-                        handleAttributeChange(table.id, index, e.target.value)
-                      }
-                    />
-                    &nbsp;
-                    <select
-                      value={attribute.type}
-                      onChange={(e) =>
-                        handleTypeChange(table.id, index, e.target.value)
-                      }
-                    >
-                      <option value="data type">Data Type</option>
-                      <option value="integer">Integer</option>
-                      <option value="boolean">Boolean</option>
-                      <option value="float">Float</option>
-                      <option value="string">String</option>
-                    </select>
-                  </li>
-                ))}
-              </ul>
+              <ul>{renderTableAttributes(table.attributes, table.id)}</ul>
+              {/* {table.attributes.map((attribute, index) => (
+                <li key={index}>
+                  <input
+                    type="text"
+                    value={attribute.name}
+                    onChange={(e) =>
+                      handleAttributeChange(table.id, index, e.target.value)
+                    }
+                  />
+                  &nbsp;
+                  <select
+                    value={attribute.type}
+                    onChange={(e) =>
+                      handleTypeChange(table.id, index, e.target.value)
+                    }
+                  >
+                    <option value="data type">Data Type</option>
+                    <option value="integer">Integer</option>
+                    <option value="boolean">Boolean</option>
+                    <option value="float">Float</option>
+                    <option value="string">String</option>
+                  </select>
+                </li>
+              ))} */}
               <input
                 type="text"
                 value={table.newAttribute}
@@ -385,9 +449,7 @@ const WireFrameMaker = () => {
               <h3>Relationships</h3>
               {table.relationships.length > 0 && (
                 <ul>
-                  {table.relationships.map((relationship, index) => (
-                    <li key={index}><h4>{relationship}</h4></li>
-                  ))}
+                  {renderTableRelationships(table.relationships, table.id)}
                 </ul>
               )}
               <select
@@ -402,10 +464,9 @@ const WireFrameMaker = () => {
                 <option value="has_many_through">Has_Many, Through:</option>
               </select>
               &nbsp;
-              <br/>
+              <br />
               {table.relationshipType !== "" && (
                 <>
-
                   <select
                     value={table.relatedTable}
                     onChange={(event) =>
@@ -443,13 +504,15 @@ const WireFrameMaker = () => {
                       </select>
                     </>
                   )}
-                  <br/>
+                  <br />
                   <button onClick={() => handleAddRelationship(table.id)}>
                     Add Relationship
                   </button>
                 </>
               )}
-              
+              <button onClick={() => handleDeleteTable(table.id)}>
+                Delete Table
+              </button>
             </div>
           </Draggable>
         ))}

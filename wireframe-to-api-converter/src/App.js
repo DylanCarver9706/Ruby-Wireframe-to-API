@@ -11,6 +11,7 @@ import './App.css';
 const App = () => {
   return (
     <div className="App">
+      <div className="content-container">
       {/* <WireFrameMaker/> */}
       <>
         <Navbar />
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/how-to-use" element={<HowToUse />} />
         {/* <Route path="/about-the-author" element={<AboutTheAuthor />} /> */}
       </Routes>
+      </div>
     </div>
   );
 };

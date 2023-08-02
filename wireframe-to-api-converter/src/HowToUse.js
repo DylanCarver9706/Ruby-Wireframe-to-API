@@ -110,9 +110,9 @@ const HowToUse = () => {
         </div>
         <div class="instruction">
           <strong>Ruby Version:</strong> The program will check if the latest
-          version of ruby is installed by checking the rubyinstaller.org. If the
+          version of ruby is installed by checking rubyinstaller.org. If the
           latest version is installed, the script will continue building your
-          API, if it isn't, the downloader will be downloaded and installed for
+          API, if it isn't, the latest version will be downloaded and installed for
           you. Follow the prompts on the installer and the script until it is
           downloaded
         </div>
