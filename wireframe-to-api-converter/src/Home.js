@@ -49,7 +49,7 @@ const Home = () => {
          <div class="ssr-variant hidden-1fb1oo7">
           <div class="framer-l4fk58" data-framer-name="Image" name="Image">
            <div data-framer-background-image-wrapper="true" style="position:absolute;border-radius: 0;top:0;right:0;bottom:0;left:0">
-            <img alt="" data-framer-original-sizes="470px" loading="lazy" sizes="(min-width: 1200px) 470px, (min-width: 810px) and (max-width: 1199px) 470px, (max-width: 809px) 1000px" src="./demo-4-image.png" style="display: block; width: 100%; height: 100%; border-radius: 0; object-position: center; object-fit: cover; image-rendering: auto"/>
+            <img alt="" data-framer-original-sizes="470px" loading="lazy" sizes="(min-width: 1200px) 470px, (min-width: 810px) and (max-width: 1199px) 470px, (max-width: 809px) 1000px" src="https://i.imgur.com/8IGVtwr.png" style="display: block; width: 100%; height: 100%; border-radius: 0; object-position: center; object-fit: cover; image-rendering: auto"/>
            </div>
           </div>
          </div>
@@ -88,7 +88,7 @@ const Home = () => {
          <div class="ssr-variant hidden-1fb1oo7">
           <div class="framer-ffcig2" data-framer-name="Image" name="Image">
            <div data-framer-background-image-wrapper="true" style="position:absolute;border-radius: 0;top:0;right:0;bottom:0;left:0">
-            <img alt="" data-framer-original-sizes="470px" loading="lazy" sizes="(min-width: 1200px) 470px, (min-width: 810px) and (max-width: 1199px) 470px, (max-width: 809px) 1000px" src="./restaurant-demo.png" style="display:block;width:100%;height:100%;border-radius: 0;object-position:center;object-fit:cover;image-rendering:auto"/>
+            <img alt="" data-framer-original-sizes="470px" loading="lazy" sizes="(min-width: 1200px) 470px, (min-width: 810px) and (max-width: 1199px) 470px, (max-width: 809px) 1000px" src="https://i.imgur.com/6w39gKJ.png" style="display:block;width:100%;height:100%;border-radius: 0;object-position:center;object-fit:cover;image-rendering:auto"/>
            </div>
           </div>
          </div>
@@ -101,7 +101,7 @@ const Home = () => {
        <div class="ssr-variant hidden-1fb1oo7">
         <div class="framer-l4fk58" data-framer-name="Image" name="Image">
          <div data-framer-background-image-wrapper="true" style="position:absolute;border-radius: 0;top:0;right:0;bottom:0;left:0">
-          <img alt="" data-framer-original-sizes="470px" loading="lazy" sizes="(min-width: 1200px) 470px, (min-width: 810px) and (max-width: 1199px) 470px, (max-width: 809px) 1000px" src="./postman-image.png" style="display:block;width:100%;height:100%;border-radius: 0;object-position:center;object-fit:cover;image-rendering:auto"/>
+          <img alt="" data-framer-original-sizes="470px" loading="lazy" sizes="(min-width: 1200px) 470px, (min-width: 810px) and (max-width: 1199px) 470px, (max-width: 809px) 1000px" src="https://i.imgur.com/40RBbz7.png" style="display:block;width:100%;height:100%;border-radius: 0;object-position:center;object-fit:cover;image-rendering:auto"/>
          </div>
         </div>
        </div>
