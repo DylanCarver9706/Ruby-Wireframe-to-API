@@ -49,7 +49,7 @@ const Home = () => {
          <div class="ssr-variant hidden-1fb1oo7">
           <div class="framer-l4fk58" data-framer-name="Image" name="Image">
            <div data-framer-background-image-wrapper="true" style="position:absolute;border-radius: 0;top:0;right:0;bottom:0;left:0">
-            <img alt="" data-framer-original-sizes="470px" loading="lazy" sizes="(min-width: 1200px) 470px, (min-width: 810px) and (max-width: 1199px) 470px, (max-width: 809px) 1000px" src="./user-demo.png" style="display: block; width: 100%; height: 100%; border-radius: 0; object-position: center; object-fit: cover; image-rendering: auto"/>
+            <img alt="" data-framer-original-sizes="470px" loading="lazy" sizes="(min-width: 1200px) 470px, (min-width: 810px) and (max-width: 1199px) 470px, (max-width: 809px) 1000px" src="./demo-4-image.png" style="display: block; width: 100%; height: 100%; border-radius: 0; object-position: center; object-fit: cover; image-rendering: auto"/>
            </div>
           </div>
          </div>
@@ -58,20 +58,13 @@ const Home = () => {
          <div class="framer-19un3sn" data-framer-name="Left" name="Left">
           <div class="framer-1tbkhbu" data-framer-component-type="RichTextContainer" style="outline:none;display:flex;flex-direction:column;justify-content:flex-start;flex-shrink:0;transform:none">
            <h3 class="framer-text" style='--font-selector:R0Y7T3JlbGVnYSBPbmUtcmVndWxhcg==;--framer-font-family:"Orelega One", sans-serif;--framer-font-size:32px;--framer-text-alignment:left;--framer-text-color:rgb(0, 53, 89)'>
-            Build Quick and Effortless Backend Wireframes
+           &nbsp;&nbsp;&nbsp;Build Quick and Effortless Backend Wireframes
            </h3>
           </div>
           <div class="ssr-variant hidden-1fb1oo7">
            <div class="framer-1qrt7fe" data-framer-component-type="RichTextContainer" style="outline:none;display:flex;flex-direction:column;justify-content:flex-start;flex-shrink:0;transform:none">
             <h3 class="framer-text" style='--font-selector:R0Y7U2NoaWJzdGVkIEdyb3Rlc2stcmVndWxhcg==;--framer-font-family:"Schibsted Grotesk", "Schibsted Grotesk Placeholder", sans-serif;--framer-line-height:1.5em;--framer-text-alignment:left;--framer-text-color:rgb(0, 53, 89)'>
-             Harness the power of drag-and-drop tables to visualize and create your backend structure. Use your creativity to shape your API in no time.
-            </h3>
-           </div>
-          </div>
-          <div class="ssr-variant hidden-4geq0r hidden-72rtr7">
-           <div class="framer-1qrt7fe" data-framer-component-type="RichTextContainer" style="outline:none;display:flex;flex-direction:column;justify-content:flex-start;flex-shrink:0;transform:none">
-            <h3 class="framer-text" style='--font-selector:R0Y7U2NoaWJzdGVkIEdyb3Rlc2stcmVndWxhcg==;--framer-font-family:"Schibsted Grotesk", "Schibsted Grotesk Placeholder", sans-serif;--framer-letter-spacing:0px;--framer-line-height:1.5em;--framer-text-alignment:left;--framer-text-color:rgb(0, 53, 89)'>
-             Harness the power of drag-and-drop tables to visualize and create your backend structure. Use your creativity to shape your API in no time.
+             Harness the power of drag-and-drop tables to &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visualize and create your backend structure. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shape and create your API in no time.
             </h3>
            </div>
           </div>
@@ -81,20 +74,13 @@ const Home = () => {
          <div class="framer-1r4ux0k" data-framer-name="Left" name="Left">
           <div class="framer-1nup74" data-framer-component-type="RichTextContainer" style="outline:none;display:flex;flex-direction:column;justify-content:flex-start;flex-shrink:0;transform:none">
            <h3 class="framer-text" style='--font-selector:R0Y7T3JlbGVnYSBPbmUtcmVndWxhcg==;--framer-font-family:"Orelega One", sans-serif;--framer-font-size:32px;--framer-text-alignment:left;--framer-text-color:rgb(0, 53, 89)'>
-            Instantly Convert Wireframes into APIs
+            Instantly Convert &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wireframes into APIs
            </h3>
           </div>
           <div class="ssr-variant hidden-1fb1oo7">
            <div class="framer-1t0s49y" data-framer-component-type="RichTextContainer" style="outline:none;display:flex;flex-direction:column;justify-content:flex-start;flex-shrink:0;transform:none">
             <h3 class="framer-text" style='--font-selector:R0Y7U2NoaWJzdGVkIEdyb3Rlc2stcmVndWxhcg==;--framer-font-family:"Schibsted Grotesk", "Schibsted Grotesk Placeholder", sans-serif;--framer-line-height:1.5em;--framer-text-alignment:left;--framer-text-color:rgb(0, 53, 89)'>
-             Our magical button transforms your wireframe into a seamless API you can put into action without breaking a sweat.
-            </h3>
-           </div>
-          </div>
-          <div class="ssr-variant hidden-4geq0r hidden-72rtr7">
-           <div class="framer-1t0s49y" data-framer-component-type="RichTextContainer" style="outline:none;display:flex;flex-direction:column;justify-content:flex-start;flex-shrink:0;transform:none">
-            <h3 class="framer-text" style='--font-selector:R0Y7U2NoaWJzdGVkIEdyb3Rlc2stcmVndWxhcg==;--framer-font-family:"Schibsted Grotesk", "Schibsted Grotesk Placeholder", sans-serif;--framer-letter-spacing:0px;--framer-line-height:1.5em;--framer-text-alignment:left;--framer-text-color:rgb(0, 53, 89)'>
-             Our magical button transforms your wireframe into a seamless API you can put into action without breaking a sweat.
+             Our magical button transforms your wireframe &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;into a seamless API you can put into action &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;without breaking a sweat.
             </h3>
            </div>
           </div>
@@ -102,7 +88,7 @@ const Home = () => {
          <div class="ssr-variant hidden-1fb1oo7">
           <div class="framer-ffcig2" data-framer-name="Image" name="Image">
            <div data-framer-background-image-wrapper="true" style="position:absolute;border-radius: 0;top:0;right:0;bottom:0;left:0">
-            <img alt="" data-framer-original-sizes="470px" loading="lazy" sizes="(min-width: 1200px) 470px, (min-width: 810px) and (max-width: 1199px) 470px, (max-width: 809px) 1000px" src="./order-demo.png" style="display:block;width:100%;height:100%;border-radius: 0;object-position:center;object-fit:cover;image-rendering:auto"/>
+            <img alt="" data-framer-original-sizes="470px" loading="lazy" sizes="(min-width: 1200px) 470px, (min-width: 810px) and (max-width: 1199px) 470px, (max-width: 809px) 1000px" src="./restaurant-demo.png" style="display:block;width:100%;height:100%;border-radius: 0;object-position:center;object-fit:cover;image-rendering:auto"/>
            </div>
           </div>
          </div>
@@ -115,7 +101,7 @@ const Home = () => {
        <div class="ssr-variant hidden-1fb1oo7">
         <div class="framer-l4fk58" data-framer-name="Image" name="Image">
          <div data-framer-background-image-wrapper="true" style="position:absolute;border-radius: 0;top:0;right:0;bottom:0;left:0">
-          <img alt="" data-framer-original-sizes="470px" loading="lazy" sizes="(min-width: 1200px) 470px, (min-width: 810px) and (max-width: 1199px) 470px, (max-width: 809px) 1000px" src="./restaurant-demo.png" style="display:block;width:100%;height:100%;border-radius: 0;object-position:center;object-fit:cover;image-rendering:auto"/>
+          <img alt="" data-framer-original-sizes="470px" loading="lazy" sizes="(min-width: 1200px) 470px, (min-width: 810px) and (max-width: 1199px) 470px, (max-width: 809px) 1000px" src="./postman-image.png" style="display:block;width:100%;height:100%;border-radius: 0;object-position:center;object-fit:cover;image-rendering:auto"/>
          </div>
         </div>
        </div>
@@ -124,20 +110,13 @@ const Home = () => {
        <div class="framer-19un3sn" data-framer-name="Left" name="Left">
         <div class="framer-1tbkhbu" data-framer-component-type="RichTextContainer" style="outline:none;display:flex;flex-direction:column;justify-content:flex-start;flex-shrink:0;transform:none">
          <h3 class="framer-text" style='--font-selector:R0Y7T3JlbGVnYSBPbmUtcmVndWxhcg==;--framer-font-family:"Orelega One", sans-serif;--framer-font-size:32px;--framer-text-alignment:left;--framer-text-color:rgb(0, 53, 89)'>
-          Build Quick and Effortless Backend Wireframes
+          Save Time and Build the &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Features That Matter
          </h3>
         </div>
         <div class="ssr-variant hidden-1fb1oo7">
          <div class="framer-1qrt7fe" data-framer-component-type="RichTextContainer" style="outline:none;display:flex;flex-direction:column;justify-content:flex-start;flex-shrink:0;transform:none">
           <h3 class="framer-text" style='--font-selector:R0Y7U2NoaWJzdGVkIEdyb3Rlc2stcmVndWxhcg==;--framer-font-family:"Schibsted Grotesk", "Schibsted Grotesk Placeholder", sans-serif;--framer-line-height:1.5em;--framer-text-alignment:left;--framer-text-color:rgb(0, 53, 89)'>
-           Harness the power of drag-and-drop tables to visualize and create your backend structure. Use your creativity to shape your API in no time.
-          </h3>
-         </div>
-        </div>
-        <div class="ssr-variant hidden-4geq0r hidden-72rtr7">
-         <div class="framer-1qrt7fe" data-framer-component-type="RichTextContainer" style="outline:none;display:flex;flex-direction:column;justify-content:flex-start;flex-shrink:0;transform:none">
-          <h3 class="framer-text" style='--font-selector:R0Y7U2NoaWJzdGVkIEdyb3Rlc2stcmVndWxhcg==;--framer-font-family:"Schibsted Grotesk", "Schibsted Grotesk Placeholder", sans-serif;--framer-letter-spacing:0px;--framer-line-height:1.5em;--framer-text-alignment:left;--framer-text-color:rgb(0, 53, 89)'>
-           Harness the power of drag-and-drop tables to visualize and create your backend structure. Use your creativity to shape your API in no time.
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get your database off the ground quicker &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to prioritize the features that matter. No &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;more 'What was that command?' or 'How &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;do I do this?' With Wireframe to API &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Converter, it's already done!
           </h3>
          </div>
         </div>
@@ -161,17 +140,10 @@ const Home = () => {
            D&K Ventures Inc, All rights reserved.
           </p>
          </div>
-         
         </div>
        </div>
       </div>
-      <div id="overlay">
-      </div>
      </div>
-    </div>
-    <div id="svg-templates" style="position: absolute; overflow: hidden; top: 0; left: 0; width: 0; height: 0">
-    </div>
-    <div id="__framer-badge-container">
     </div>
     <script data-framer-appear-animation="no-preference">
     </script>
