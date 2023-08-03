@@ -1,0 +1,71 @@
+{
+  "database-name": "fake-api",
+  "tables": [
+    {
+      "id": 1,
+      "title": "customers",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "age",
+          "type": "integer"
+        },
+        {
+          "name": "email",
+          "type": "string"
+        }
+      ],
+      "relationships": [
+        "belongs_to :order",
+        "has_many :purchases"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "orders",
+      "attributes": [
+        {
+          "name": "total_price",
+          "type": "float"
+        },
+        {
+          "name": "completed",
+          "type": "boolean"
+        },
+        {
+          "name": "customer_id",
+          "type": "integer"
+        }
+      ],
+      "relationships": [
+        "belongs_to :customer",
+        "has_many :purchases"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "purchases",
+      "attributes": [
+        {
+          "name": "product_name",
+          "type": "string"
+        },
+        {
+          "name": "quantity",
+          "type": "integer"
+        },
+        {
+          "name": "order_id",
+          "type": "integer"
+        }
+      ],
+      "relationships": [
+        "belongs_to :order",
+        "has_one :customer, through: :order"
+      ]
+    }
+  ]
+}
