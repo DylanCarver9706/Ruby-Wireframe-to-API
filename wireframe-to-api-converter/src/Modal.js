@@ -6,9 +6,9 @@ const Modal = ({ isOpen, onClose }) => {
   return (
     <div className="modal-container">
       <div className="modal-content">
-        <h2>API Generated Successfully!</h2>
-        <p>Your database is downloading into an API.</p>
-        <h3>Please Consider Donating Below to Support the Expansion of the App</h3>
+        <h1>API Generated Successfully!</h1>
+        <h3>Your database is downloading into an API.</h3>
+        <h2>Please Consider Donating Below to Support the Expansion of the App</h2>
         <div className="donate-buttons">
           <button>
             <a

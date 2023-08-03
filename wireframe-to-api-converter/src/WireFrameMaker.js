@@ -38,6 +38,33 @@ const WireFrameMaker = () => {
     localStorage.setItem("tables", JSON.stringify(tables));
   }, [tables]);
 
+  useEffect(() => {
+    // Load the database name from local storage when the component mounts
+    const savedDatabaseName = localStorage.getItem("databaseName");
+    if (savedDatabaseName) {
+      setDatabaseName(savedDatabaseName);
+    }
+  }, []);
+  
+  useEffect(() => {
+    // Save the database name to local storage whenever it changes
+    localStorage.setItem("databaseName", databaseName);
+  }, [databaseName]);
+
+  useEffect(() => {
+    // Load the zoom level from local storage when the component mounts
+    const savedZoomLevel = parseFloat(localStorage.getItem("zoomLevel"));
+    if (!isNaN(savedZoomLevel)) {
+      setZoomLevel(savedZoomLevel);
+    }
+  }, []);
+  
+  useEffect(() => {
+    // Save the zoom level to local storage whenever it changes
+    localStorage.setItem("zoomLevel", zoomLevel);
+  }, [zoomLevel]);
+  
+
   const initialTablesRef = useRef([]);
 
   const handleDrag = (id, draggableData) => {
