@@ -102,25 +102,25 @@ const WireFrameMaker = () => {
     openModal();
   };
 
-  const logTables = () => {
-    const data = {
-      "database-name": databaseName,
-      tables: tables.map((table) => {
-        return {
-          id: table.id,
-          title: table.title,
-          attributes: table.attributes.map((attribute) => {
-            return {
-              name: attribute.name,
-              type: attribute.type,
-            };
-          }),
-          relationships: table.relationships,
-        };
-      }),
-    };
-    console.log(JSON.stringify(data, null, 2));
-  };
+  // const logTables = () => {
+  //   const data = {
+  //     "database-name": databaseName,
+  //     tables: tables.map((table) => {
+  //       return {
+  //         id: table.id,
+  //         title: table.title,
+  //         attributes: table.attributes.map((attribute) => {
+  //           return {
+  //             name: attribute.name,
+  //             type: attribute.type,
+  //           };
+  //         }),
+  //         relationships: table.relationships,
+  //       };
+  //     }),
+  //   };
+  //   console.log(JSON.stringify(data, null, 2));
+  // };
 
   const handleAttributeChange = (tableId, attributeIndex, newValue) => {
     setTables((prevTables) =>
@@ -274,9 +274,12 @@ const WireFrameMaker = () => {
           <option value="string">String</option>
         </select>
         &nbsp;
-        <button onClick={() => handleDeleteAttribute(tableId, index)}>
-          Delete Attribute
-        </button>
+        <h4
+          className="delete-button"
+          onClick={() => handleDeleteAttribute(tableId, index)}
+        >
+          X
+        </h4>
       </li>
     ));
   };
@@ -293,9 +296,12 @@ const WireFrameMaker = () => {
           {throughTable
             ? `${type} :${relatedTable}, through: :${throughTable}`
             : `${type} :${relatedTable}`}
-          <button onClick={() => handleDeleteRelationship(tableId, index)}>
-            Delete Relationship
-          </button>
+          <h4
+            className="delete-button"
+            onClick={() => handleDeleteRelationship(tableId, index)}
+          >
+            X
+          </h4>
         </li>
       );
     });
@@ -363,6 +369,7 @@ const WireFrameMaker = () => {
 
   return (
     <div>
+      <Modal isOpen={isModalOpen} onClose={closeModal} />
       <div className="header">
         <div className="input-container">
           <input
@@ -380,13 +387,12 @@ const WireFrameMaker = () => {
         <button onClick={generateAPI} className="generate-api-button">
           Generate API
         </button>
-        <button onClick={logTables}>Log Tables</button>
+        {/* <button onClick={logTables}>Log Tables</button> */}
       </div>
       <div
         className="wireframe-container"
         style={{ transform: `scale(${zoomLevel})` }}
       >
-        <Modal isOpen={isModalOpen} onClose={closeModal} />
         <div>
           {tables.map((table) => (
             <Draggable
@@ -406,30 +412,6 @@ const WireFrameMaker = () => {
                 </h3>
                 <h3>Attributes</h3>
                 <ul>{renderTableAttributes(table.attributes, table.id)}</ul>
-                {/* {table.attributes.map((attribute, index) => (
-                <li key={index}>
-                  <input
-                    type="text"
-                    value={attribute.name}
-                    onChange={(e) =>
-                      handleAttributeChange(table.id, index, e.target.value)
-                    }
-                  />
-                  &nbsp;
-                  <select
-                    value={attribute.type}
-                    onChange={(e) =>
-                      handleTypeChange(table.id, index, e.target.value)
-                    }
-                  >
-                    <option value="data type">Data Type</option>
-                    <option value="integer">Integer</option>
-                    <option value="boolean">Boolean</option>
-                    <option value="float">Float</option>
-                    <option value="string">String</option>
-                  </select>
-                </li>
-              ))} */}
                 <input
                   type="text"
                   value={table.newAttribute}
@@ -470,7 +452,7 @@ const WireFrameMaker = () => {
                 <h3>Relationships</h3>
                 {table.relationships.length > 0 && (
                   <ul>
-                    {renderTableRelationships(table.relationships, table.id)}
+                    <h3>{renderTableRelationships(table.relationships, table.id)}</h3>
                   </ul>
                 )}
                 <select
@@ -532,9 +514,12 @@ const WireFrameMaker = () => {
                     </button>
                   </>
                 )}
-                <button onClick={() => handleDeleteTable(table.id)}>
-                  Delete Table
-                </button>
+                <h4
+                  className="delete-button-table"
+                  onClick={() => handleDeleteTable(table.id)}
+                >
+                  X
+                </h4>
               </div>
             </Draggable>
           ))}

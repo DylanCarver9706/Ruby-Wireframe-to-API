@@ -24,14 +24,14 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   width: auto;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 /* Style for the h3 elements within .table */
 .table h3 {
   color: #333;
   font-size: 18px;
-  margin-bottom: 8px; /* Adjusted margin to make it more compact */
+  margin-bottom: 8px;
 }
 
 /* Style for the ul element within .table */
@@ -43,7 +43,9 @@
 
 /* Style for the li elements within .table */
 .table li {
-  margin-bottom: 4px;
+  margin-top: 4px;
+  /* margin-bottom: 4px; */
+  position: relative;
 }
 
 /* Style for the button elements within .table */
@@ -80,7 +82,7 @@
 .table p {
   font-style: italic;
   color: #777;
-  margin-bottom: 8px; /* Adjusted margin to make it more compact */
+  margin-bottom: 8px;
 }
 
 .header {
@@ -319,8 +321,46 @@
 
 .zoom-buttons button.zoom-in::before {
   content: "+";
+  font-size: 50px;
 }
 
 .zoom-buttons button.zoom-out::before {
-  content: "-";
+  content: "—";
+  font-size: 30px;
+}
+
+.delete-button {
+  display: inline-block;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  color: gray;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+  position: relative;
+  top: 2px;
+}
+
+.delete-button:hover {
+  color: red;
+}
+
+.delete-button-table {
+  background-color: transparent;
+  border: none;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+  /* Position the delete button at the top right corner */
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.delete-button-table:hover {
+  color: red;
 }
