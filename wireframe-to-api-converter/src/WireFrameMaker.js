@@ -3,6 +3,7 @@ import Draggable from "react-draggable";
 import JSZip from "jszip";
 import { saveAs } from "file-saver";
 import Modal from "./Modal";
+import pluralize from "pluralize";
 
 const WireFrameMaker = () => {
   const [databaseName, setDatabaseName] = useState("");
@@ -45,7 +46,7 @@ const WireFrameMaker = () => {
       setDatabaseName(savedDatabaseName);
     }
   }, []);
-  
+
   useEffect(() => {
     // Save the database name to local storage whenever it changes
     localStorage.setItem("databaseName", databaseName);
@@ -58,12 +59,11 @@ const WireFrameMaker = () => {
       setZoomLevel(savedZoomLevel);
     }
   }, []);
-  
+
   useEffect(() => {
     // Save the zoom level to local storage whenever it changes
     localStorage.setItem("zoomLevel", zoomLevel);
   }, [zoomLevel]);
-  
 
   const initialTablesRef = useRef([]);
 
@@ -261,10 +261,21 @@ const WireFrameMaker = () => {
           (table.relationshipType !== "has_many_through" ||
             table.throughTable.trim() !== "")
         ) {
-          const relationshipString =
-            table.relationshipType === "has_many_through"
-              ? `has_many :${table.relatedTable}, through: :${table.throughTable}`
-              : `${table.relationshipType} :${table.relatedTable}`;
+          let relationshipString;
+
+          if (table.relationshipType === "has_many_through") {
+            const relatedTablePluralized = pluralize.plural(table.relatedTable);
+            const throughTablePluralized = pluralize.plural(table.throughTable);
+            relationshipString = `has_many :${relatedTablePluralized}, through: :${throughTablePluralized}`;
+          } else if (table.relationshipType === "has_many") {
+            const relatedTablePluralized = pluralize.plural(table.relatedTable);
+            relationshipString = `has_many :${relatedTablePluralized}`;
+          } else {
+            const relatedTableSingularized = pluralize.singular(
+              table.relatedTable
+            );
+            relationshipString = `belongs_to :${relatedTableSingularized}`;
+          }
 
           return {
             ...table,
@@ -479,7 +490,9 @@ const WireFrameMaker = () => {
                 <h3>Relationships</h3>
                 {table.relationships.length > 0 && (
                   <ul>
-                    <h3>{renderTableRelationships(table.relationships, table.id)}</h3>
+                    <h3>
+                      {renderTableRelationships(table.relationships, table.id)}
+                    </h3>
                   </ul>
                 )}
                 <select
