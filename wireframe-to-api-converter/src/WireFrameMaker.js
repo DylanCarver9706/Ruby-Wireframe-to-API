@@ -324,11 +324,11 @@ const WireFrameMaker = () => {
 
   const renderTableRelationships = (relationships, tableId) => {
     return relationships.map((relationship, index) => {
-      const parts = relationship.split(":").map((part) => part.trim());
-      const type = parts[0];
-      const relatedTable = parts[1];
-      const throughTable = parts[2];
-
+      const type = relationship.split(":")[0].trim();
+      const relatedTable = relationship.split(":")[1].split(",")[0].trim();
+      const throughMatch = relationship.match(/through: :(\w+)/);
+      const throughTable = throughMatch ? throughMatch[1] : null;
+  
       return (
         <li key={index}>
           {throughTable
@@ -538,7 +538,8 @@ const WireFrameMaker = () => {
                           {tables
                             .filter(
                               (t) =>
-                                t.id !== table.id && t.title !== relatedTable
+                                t.id !== table.id &&
+                                t.title !== table.relatedTable
                             )
                             .map((t) => (
                               <option key={t.id} value={t.title}>
