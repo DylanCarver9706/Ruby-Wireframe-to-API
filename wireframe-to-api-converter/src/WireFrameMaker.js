@@ -4,6 +4,7 @@ import JSZip from "jszip";
 import { saveAs } from "file-saver";
 import Modal from "./Modal";
 import pluralize from "pluralize";
+// import Xarrow from "react-xarrows";
 
 const WireFrameMaker = () => {
   const [databaseName, setDatabaseName] = useState("");
@@ -39,16 +40,21 @@ const WireFrameMaker = () => {
     localStorage.setItem("tables", JSON.stringify(tables));
   }, [tables]);
 
+  // Load the database name from local storage when the component mounts
   useEffect(() => {
-    // Load the database name from local storage when the component mounts
     const savedDatabaseName = localStorage.getItem("databaseName");
     if (savedDatabaseName) {
-      setDatabaseName(savedDatabaseName);
+      // Replace spaces with dashes, remove special characters, and convert to lowercase
+      const sanitizedDatabaseName = savedDatabaseName
+        .replace(/\s+/g, "-")
+        .replace(/[^a-zA-Z0-9-]/g, "")
+        .toLowerCase();
+      setDatabaseName(sanitizedDatabaseName);
     }
   }, []);
 
+  // Save the database name to local storage whenever it changes
   useEffect(() => {
-    // Save the database name to local storage whenever it changes
     localStorage.setItem("databaseName", databaseName);
   }, [databaseName]);
 
@@ -328,7 +334,7 @@ const WireFrameMaker = () => {
       const relatedTable = relationship.split(":")[1].split(",")[0].trim();
       const throughMatch = relationship.match(/through: :(\w+)/);
       const throughTable = throughMatch ? throughMatch[1] : null;
-  
+
       return (
         <li key={index}>
           {throughTable
@@ -414,7 +420,13 @@ const WireFrameMaker = () => {
             type="text"
             value={databaseName}
             placeholder="Database Name"
-            onChange={(event) => setDatabaseName(event.target.value)}
+            onChange={(event) => {
+              const sanitizedDatabaseName = event.target.value
+                .replace(/\s+/g, "-")
+                .replace(/[^a-zA-Z0-9-]/g, "")
+                .toLowerCase();
+              setDatabaseName(sanitizedDatabaseName);
+            }}
             className="input-field"
           />
           <button onClick={addTable} className="add-table-button">
@@ -438,7 +450,7 @@ const WireFrameMaker = () => {
               position={table.position}
               onStop={(e, draggableData) => handleDrag(table.id, draggableData)}
             >
-              <div className="table">
+              <div className="table" id={table.id}>
                 <h3>
                   http://localhost:3000/&nbsp;
                   <input
@@ -564,6 +576,16 @@ const WireFrameMaker = () => {
               </div>
             </Draggable>
           ))}
+          {/* connects arrow to the html ids of the tables with 'start' and 'end'. Tables already have an id set as their table.id. Just needs logic to connect them based on relationship */}
+          {/* <Xarrow
+            start="1"
+            end="2"
+            path="grid"
+            animateDrawing
+            dashness
+            tailShape={"heart"}
+            endAnchor="right"
+          /> */}
         </div>
       </div>
       <div className="zoom-buttons">

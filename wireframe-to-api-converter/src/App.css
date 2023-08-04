@@ -138,7 +138,7 @@
 }
 
 .how-to-use-container {
-  max-width: 60%;
+  max-width: 80%;
   margin: 0 auto;
   padding: 20px;
   color: black;
@@ -148,6 +148,7 @@
 .how-to-use-container h2 {
   margin-top: 0;
   color: black;
+  font-size: 25px;
 }
 
 .how-to-intro {
@@ -155,10 +156,11 @@
   flex-direction: column;
   text-align: center;
   align-items: center;
-  max-width: 60%;
+  max-width: 80%;
   margin: 0 auto;
   border: 2px solid #000000;
   padding: 10px;
+  font-size: 16px;
 }
 
 /* .how-to-use-container {
@@ -182,6 +184,7 @@
   margin-bottom: 10px;
   border: 2px solid #000000;
   padding: 10px; /* Add padding to the border */
+  font-size: 20px;
 }
 
 .how-to-instructions h2 {
@@ -192,6 +195,7 @@
   margin-bottom: 20px;
   border: 2px solid #000000;
   padding: 10px; /* Add padding to the border */
+  font-size: 20px;
 }
 
 .faq-item strong {
